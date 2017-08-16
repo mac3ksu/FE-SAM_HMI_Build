@@ -64,6 +64,9 @@ def print_hmi_point(output, mapped_pts_list, pts_dict):
         state_1 = pts_dict[pt][3]
         alm_state = pts_dict[pt][4]
 
+        name = name.replace('"', '')
+        name = name.replace('.', '')
+
         if name != '':
             alm_state = int(alm_state)
             output.write('          <Item Name="DI_{}" Path="" DisplayName="{}" DataType="1" AccessRight="1" PointType="1" AudibleDisable="False" RemoveFromTabular="False">\n'.format(
@@ -139,8 +142,8 @@ def build_pages(output, pages_list, pts_dict):
             output_file.write('        <Page Name="{}" />\n'.format(page[0]))
 
 if __name__ == '__main__':
-    sub_name = 'PLEASANT VALLEY SUBSTATION'
-    outfile = 'Pleasant Valley SAM Rev D.SAM'
+    sub_name = 'HOSENSACK SUBSTATION'
+    outfile = 'Hosensack SAM Rev A.SAM'
 
     wbook = xlrd.open_workbook('SAM HMI build.xlsx')
     wsheet = wbook.sheet_by_index(0)
@@ -155,9 +158,10 @@ if __name__ == '__main__':
     pts_dict = build_pts_dict(wsheet)
     mapped_pts_list = sorted(pts_dict.keys())
 
-
+    print('Pages:')
     pages_list = []
     for row in range(1,1+number_of_pages):
+        print(row)
         pages_list.append(build_page_list(wsheet, row))
 
     for page in pages_list:
