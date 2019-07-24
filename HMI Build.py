@@ -12,7 +12,7 @@ def build_pts_dict(worksheet_obj):
         desc = desc.replace('.', '')
         desc = desc.replace('–', '-')
         desc = desc.replace('&', 'and')
-        print(i, desc)
+        # print(i, desc)
         state_0_desc = worksheet_obj.cell_value(i, 2)
         state_1_desc = worksheet_obj.cell_value(i, 3)
         alarm_state = int(worksheet_obj.cell_value(i, 4))
@@ -147,10 +147,10 @@ def build_pages(output, pages_list, pts_dict):
             output_file.write('        <Page Name="{}" />\n'.format(page[0]))
 
 if __name__ == '__main__':
-    sub_name = 'MANSFIELD SUB'
-    outfile = 'Mansfield SAM Rev A.SAM'
+    sub_name = 'WHIPPANY SUB'
+    outfile = 'Whippany SAM Rev A.SAM'
 
-    wbook = xlrd.open_workbook('SAM HMI build_Mansfield.xlsx')
+    wbook = xlrd.open_workbook('Whippany SAM HMI Build.xlsx')
     wsheet = wbook.sheet_by_index(0)
 
     number_of_pages = -1
