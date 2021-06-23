@@ -182,7 +182,7 @@ if __name__ == '__main__':
     with open(outfile, 'w') as output_file:
         output_file.write('<AlarmConfiguration>\n')
         output_file.write('  <OPCSection Hierarchical="0">\n')
-        output_file.write('    <Endpoint Path="http://localhost/AseOpcServer.1" Name="">\n')
+        output_file.write('    <Endpoint Path="http://localhost:8080/AseOpcServer.1" Name="">\n')
         output_file.write('      <Group Name="LINE_0" Path="">\n')
         output_file.write('        <Group Name="Device_0" Path="">\n')
 
